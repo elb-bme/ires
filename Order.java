@@ -3,12 +3,12 @@ import java.util.List;
 
 public class Order {
     private int orderId;
-    private String customerName;
+    private String customerId;
     private List<String> items;
 
-    public Order(int orderId, String customerName) {
+    public Order(int orderId, String customerId) {
         this.orderId = orderId;
-        this.customerName = customerName;
+        this.customerId = customerId;
         this.items = new ArrayList<>();
     }
 
@@ -16,8 +16,8 @@ public class Order {
         return orderId;
     }
 
-    public String getCustomerName() {
-        return customerName;
+    public String getcustomerId() {
+        return customerId;
     }
 
     public List<String> getItems() {

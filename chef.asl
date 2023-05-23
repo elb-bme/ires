@@ -28,6 +28,7 @@
     .wait(preparationTimeMillis);
      // Send a message to inform the waiter that the order is ready
     .send(waiter, order_ready, pizza).
+    .print("Pizza ready");
 
     // Return to take the next order
     !take_order.
@@ -45,6 +46,7 @@
 
      // Send a message to inform the waiter that the order is ready
     .send(waiter, order_ready, burger).
+    .print("Burger ready");
 
     // Return to take the next order
     !take_order.

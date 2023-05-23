@@ -1,5 +1,16 @@
-public class Classroom extends Environment {
+import java.util.Queue;
+import java.util.LinkedList;
+
+public class Restaurant extends Environment {
+	// Create an order queue to hold the pending orders
+	private Queue<Order> orderQueue = new LinkedList<>();
+
 	 static Logger logger = Logger.getLogger(Restaurant.class.getName());
+	 // When a customer places an order, add it to the order queue
+	public void placeOrder(String customerID, String item) {
+		Order order = new Order(customerID, item);
+		orderQueue.add(order);
+	}
 	 
 	 @Override
 public boolean executeAction(String ag, Structure action) {
@@ -38,29 +49,5 @@ public boolean executeAction(String ag, Structure action) {
     informAgsEnvironmentChanged();
     return true;
 }
-
-private int generatePreparationTime(String item) {
-    int prepTime = 0;
-    
-    // Generate a random number to determine the preparation time
-    int randNum = random.nextInt(101);
-    
-    if (item.equals("burger")) {
-        if (randNum < 40) {
-            prepTime = 3;  // 3 minutes
-        } else {
-            prepTime = 10; // 10 minutes
-        }
-    } else if (item.equals("pizza")) {
-        if (randNum < 70) {
-            prepTime = 10; // 10 minutes
-        } else {
-            prepTime = 25; // 25 minutes
-        }
-    }
-    
-    return prepTime;
-}
-
 
 }
